@@ -1,0 +1,80 @@
+﻿ObjectPath	MatchedBy	Components
+Terrain_Exterior[2]	GameObject name, Terrain, TerrainCollider	UnityEngine.Transform, UnityEngine.Terrain, UnityEngine.TerrainCollider
+Player[3]	GameObject name, CharacterController, PlayerInput, PlayerMovement, PlayerLook, PlayerInteraction, PlayerInventory	UnityEngine.Transform, UnityEngine.CharacterController, UnityEngine.InputSystem.PlayerInput, PlayerInputSetup, PlayerMovement, PlayerLook, PlayerInteraction, PlayerInventory
+Player[3]/Main Camera[0]	AudioListener	UnityEngine.Transform, UnityEngine.Camera, UnityEngine.AudioListener, UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+Interaction_Test_Cube[5]	TestInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider, TestInteractable
+Desk_Gameplay[6]/Drawer_Interactable[1]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+Desk_Gameplay[6]/Drawer_Interactable[1]/ExitKey_Test[0]	GameObject name, ExitKeyPickup	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, ExitKeyPickup
+Desk_Gameplay[6]/drawer_2[2]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+Desk_Gameplay[6]/drawer_3[3]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+Desk_Gameplay[6]/drawer_4[4]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+Desk_Gameplay[6]/drawer_5[5]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+Desk_Gameplay[6]/drawer_6[6]	GameObject name, DrawerInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider, DrawerInteractable
+NoiseSystem_Gameplay[7]	GameObject name, NoiseSystem	UnityEngine.Transform, NoiseSystem
+NoiseListener_Test[8]	GameObject name, NoiseListenerTest	UnityEngine.Transform, NoiseListenerTest
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_1[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_2[2]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_3[3]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_4[4]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_5[5]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/techinical room[4]/photo_frame_desk[11]/drawer_6[6]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.MeshCollider
+======================[9]/Drawer09[15]	GameObject name	UnityEngine.Transform
+======================[9]/Drawer09[15]/Drawer_Body09[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer09[15]/Drawer_Body09[0]/Drawer09_1[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer09[15]/Drawer_Body09[0]/Drawer09_2[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18 (4)[22]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (1)[27]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/piano (2)[29]/Piano[1]/Keys[1]	GameObject name	UnityEngine.Transform
+======================[9]/piano (2)[29]/Piano[1]/Keys[1]/Black Keys[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/piano (2)[29]/Piano[1]/Keys[1]/White Keys[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_19 (1)[34]/Cosmic_Retro_Computer2_19[0]/Cosmic_Retro_Computer2_19_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Drawer35[38]	GameObject name	UnityEngine.Transform
+======================[9]/Drawer35[38]/Drawer35_Body[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_1[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_2[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_3[2]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_4[3]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_5[4]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_6[5]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer35[38]/Drawer35_Body[0]/Drawer35_7[6]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18 (5)[40]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (16)[41]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (20)[47]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (8)[49]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/piano (1)[52]/Piano[1]/Keys[1]	GameObject name	UnityEngine.Transform
+======================[9]/piano (1)[52]/Piano[1]/Keys[1]/Black Keys[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/piano (1)[52]/Piano[1]/Keys[1]/White Keys[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18 (23)[55]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/BathroomVanity01[57]/BathroomVanity01_model[0]/BathroomVanity01Drawer[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18[58]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (21)[60]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (14)[72]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (09)[76]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (3)[77]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (12)[78]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Drawer09 (1)[84]	GameObject name	UnityEngine.Transform
+======================[9]/Drawer09 (1)[84]/Drawer_Body09[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer09 (1)[84]/Drawer_Body09[0]/Drawer09_1[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Drawer09 (1)[84]/Drawer_Body09[0]/Drawer09_2[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18 (2)[92]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (17)[95]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (11)[100]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (18)[103]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (7)[110]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/piano[114]/Piano[1]/Keys[1]	GameObject name	UnityEngine.Transform
+======================[9]/piano[114]/Piano[1]/Keys[1]/Black Keys[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/piano[114]/Piano[1]/Keys[1]/White Keys[1]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_18 (22)[117]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (6)[120]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Desk_Gameplay (1)[127]/Drawer_Interactable[1]	GameObject name, TestInteractable	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider, TestInteractable
+======================[9]/Desk_Gameplay (1)[127]/drawer_2[2]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Desk_Gameplay (1)[127]/drawer_3[3]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Desk_Gameplay (1)[127]/drawer_4[4]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Desk_Gameplay (1)[127]/drawer_5[5]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Desk_Gameplay (1)[127]/drawer_6[6]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer
+======================[9]/Cosmic_Retro_Computer2_19[133]/Cosmic_Retro_Computer2_19[0]/Cosmic_Retro_Computer2_19_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (19)[151]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (10)[165]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (13)[168]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+======================[9]/Cosmic_Retro_Computer2_18 (15)[170]/Cosmic_Retro_Computer2_18[0]/Cosmic_Retro_Computer2_18_Keyboard[0]	GameObject name	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.BoxCollider
+Louren[10]	CharacterController, FollowTarget, NavMeshAgent	UnityEngine.Transform, UnityEngine.MeshFilter, UnityEngine.MeshRenderer, UnityEngine.CapsuleCollider, UnityEngine.CharacterController, FollowTarget, UnityEngine.AI.NavMeshAgent

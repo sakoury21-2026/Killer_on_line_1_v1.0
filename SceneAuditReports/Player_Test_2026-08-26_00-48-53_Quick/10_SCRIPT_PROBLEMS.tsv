@@ -1,0 +1,2 @@
+﻿Severity	Category	Details	Paths
+REVIEW	Script Folder Naming	Both folders named 'Script' and 'Scripts' exist under Assets	Search 09_SCRIPT_INVENTORY.tsv before moving anything

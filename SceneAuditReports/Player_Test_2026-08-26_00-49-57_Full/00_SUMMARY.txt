@@ -1,0 +1,59 @@
+﻿KILLER ON LINE 1 - SCENE AUDIT SUMMARY
+=======================================
+Read-only audit: the tool did not save or modify the Scene.
+
+Audit mode: Full
+Unity version: 6000.3.18f1
+Scene name: Player_Test
+Scene path: Assets/_Killeronline1/Scenes/Player_Test.unity
+Scene dirty flag after audit: False
+Scene file size: 937.23 KB
+GameObjects: 788
+ActiveSelf GameObjects: 787
+InactiveSelf GameObjects: 1
+Components: 2253
+Prefab instance roots: 270
+Missing prefab assets: 0
+Missing scripts: 26
+Missing serialized references: 2
+Serialized components that could not be scanned: 0
+Terrains: 1
+Terrains without TerrainCollider: 0
+Large embedded meshes: 0
+Vertices in large embedded meshes: 0
+
+IMPORTANT COMPONENT COUNTS
+--------------------------
+PlayerMovement: 1
+PlayerLook: 1
+PlayerInteraction: 1
+PlayerInventory: 1
+PlayerInput: 1
+CharacterController: 2
+DrawerInteractable: 6
+ExitKeyPickup: 1
+NoiseSystem: 1
+NoiseListenerTest: 1
+TestInteractable: 2
+FollowTarget: 1
+NavMeshAgent: 1
+NavMeshSurface: 0
+Terrain: 1
+TerrainCollider: 1
+AudioListener: 1
+EventSystem: 0
+
+FILES IN THIS REPORT
+--------------------
+00_SUMMARY.txt - overview and important counts
+01_HIERARCHY.tsv - every GameObject and its components
+02_PROBLEMS.tsv - missing items and review warnings
+03_PREFAB_INSTANCES.tsv - prefab instances and source assets
+04_IMPORTANT_OBJECTS.tsv - Player, Lauren, noise, navigation and gameplay objects
+05_COMPONENT_COUNTS.tsv - component totals
+06_REPEATED_NAMES.tsv - repeated names; repetition is not automatically an error
+07_PREFAB_SOURCE_COUNTS.tsv - number of instances per source prefab
+08_ROOT_OBJECT_COUNTS.tsv - hierarchy size under each root object
+09_SCRIPT_INVENTORY.tsv - first-party scripts found under Assets
+10_SCRIPT_PROBLEMS.tsv - duplicate script names/classes and Script/Scripts folder warning
+11_DEPENDENCIES.tsv - assets referenced by the active Scene
