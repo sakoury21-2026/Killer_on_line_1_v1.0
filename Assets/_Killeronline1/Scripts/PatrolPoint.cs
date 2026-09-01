@@ -11,6 +11,7 @@ public class PatrolPoint : MonoBehaviour
         [Header("Patrol")]
         public Transform[] waypoints;
         private int currentWaypoint = 0;
+        public bool isOpen;
 
         [Header("Detection")]
         public Transform player;
@@ -108,4 +109,12 @@ public class PatrolPoint : MonoBehaviour
 
             return true; // רואה את השחקן!
         }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            isOpen = true;
+        }
     }
+
+}
