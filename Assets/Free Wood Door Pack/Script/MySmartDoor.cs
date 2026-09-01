@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MySmartDoor : MonoBehaviour
+public class MySmartDoor : MonoBehaviour, IInteractable
 {
     [Header("Door Movement")]
     [SerializeField] private float openAngle = -90f;

@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour // מחלקה שאחראית על ת
 
         if (noiseSystem == null) // בודק אם מערכת הרעש עדיין לא נמצאה
         { // תחילת התנאי
-            Debug.LogError("לא נמצאה מערכת רעש בסצנה", this); // מציג שגיאה ברורה ומקשר אותה לרכיב הנוכחי
+            Debug.LogError("NoiseSystem Not Found", this); // מציג שגיאה ברורה ומקשר אותה לרכיב הנוכחי
         } // סוף התנאי
 
         isCrouching = startCrouched; // קובע את מצב ההתכופפות ההתחלתי
