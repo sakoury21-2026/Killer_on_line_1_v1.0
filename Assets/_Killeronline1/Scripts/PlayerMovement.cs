@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour // מחלקה שאחראית על ת
     private bool isSprinting; // זוכר אם השחקן נמצא כרגע בריצה
     private bool movementControlsEnabled = true; // האם פקודות התנועה פעילות
 
+    public bool IsCrouching => isCrouching; // מאפשר למערכות אחרות לקרוא אם השחקן שפוף בלי לאפשר להן לשנות את המצב
+
     private void Awake() // פועל פעם אחת כאשר האובייקט נטען
     { // תחילת פעולת ההכנה
         characterController = GetComponent<CharacterController>(); // מוצא ושומר את רכיב התנועה וההתנגשויות שעל השחקן
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour // מחלקה שאחראית על ת
 
         if (noiseSystem == null) // בודק אם מערכת הרעש עדיין לא נמצאה
         { // תחילת התנאי
-            Debug.LogError("לא נמצאה מערכת רעש בסצנה", this); // מציג שגיאה ברורה ומקשר אותה לרכיב הנוכחי
+            Debug.LogError("NoiseSystem Not Found", this); // מציג שגיאה ברורה ומקשר אותה לרכיב הנוכחי
         } // סוף התנאי
 
         isCrouching = startCrouched; // קובע את מצב ההתכופפות ההתחלתי
