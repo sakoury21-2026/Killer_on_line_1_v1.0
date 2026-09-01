@@ -37796,9 +37796,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1740021865}
-    - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1740021872}
   m_SourcePrefab: {fileID: 100100000, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
 --- !u!4 &1740021863 stripped
 Transform:
@@ -37824,29 +37821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MySmartDoor
   openAngle: -90
   openSpeed: 5
---- !u!114 &1740021872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740021864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3384788e7122feb4c8ef16ed0a66804d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomDoorInteractable
-  doorPivot: {fileID: 0}
-  doorSideReference: {fileID: 0}
-  openAngle: 90
-  dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
-  fastPullThreshold: 900
-  noiseCooldown: 0.35
 --- !u!114 &1740021873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46458,7 +46432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5811455796314023450, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.111730926
+      value: -0.184
       objectReference: {fileID: 0}
     - target: {fileID: 5811455796314023450, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
       propertyPath: m_LocalPosition.z
