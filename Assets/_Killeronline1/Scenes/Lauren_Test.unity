@@ -1076,7 +1076,6 @@ GameObject:
   - component: {fileID: 1045256492}
   - component: {fileID: 1045256494}
   - component: {fileID: 1045256493}
-  - component: {fileID: 1045256495}
   - component: {fileID: 1045256496}
   m_Layer: 0
   m_Name: Lauren
@@ -1097,20 +1096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cb2ad746e7b30439f49ed0bbb3e165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrolPoint
-  currentState: 0
-  waypoints:
-  - {fileID: 1399995545}
-  - {fileID: 1285842980}
-  isOpen: 0
-  player: {fileID: 0}
-  viewDistance: 15
-  viewAngle: 60
-  catchDistance: 1.2
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  patrolSpeed: 2
-  chaseSpeed: 5
 --- !u!195 &1045256487
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1281,20 +1266,6 @@ MonoBehaviour:
   tripodSize: 1
   boneColor: {r: 0, g: 0, b: 1, a: 0.5}
   m_Transforms: []
---- !u!114 &1045256495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045256485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f81186576c2aa640b025170182a61bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemeAI
-  currentState: 0
-  searchDuration: 5
 --- !u!114 &1045256496
 MonoBehaviour:
   m_ObjectHideFlags: 0
