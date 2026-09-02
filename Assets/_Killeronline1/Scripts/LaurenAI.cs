@@ -1,28 +1,36 @@
 using UnityEngine;
+// נותן גישה ל-MonoBehaviour, ל-Transform, ל-Animator, ל-Vector3 ול-Time של Unity.
 using UnityEngine.AI;
+// נותן גישה ל-NavMeshAgent, ל-NavMesh ולבדיקת נקודות הליכה חוקיות.
 
-public class LaurenAI : MonoBehaviour
+public enum LaurenState
+// מגדיר את כל המצבים האפשריים של Lauren כמילים ברורות במקום הרבה משתני bool סותרים.
 {
-    public enum LaurenState
-    {
-        // פתיחת גוף ה-enum LaurenState.
-        Patrol,
-        // Lauren הולכת בין נקודות המסלול.
-        Investigate,
-        // Lauren הולכת אל המקום שבו שמעה רעש או ראתה את השחקן לאחרונה.
-        Search,
-        // Lauren עומדת ומחפשת לזמן קצר לאחר שהגיעה למקום החשוד.
-        Chase,
-        // Lauren רודפת אחרי השחקן כל עוד היא באמת רואה אותו.
-        ReturnToPatrol,
-        // Lauren חוזרת למסלול לאחר שסיימה לחפש.
-        Caught
-        // Lauren עצרה את התנועה ומפעילה את אנימציית התפיסה.
+    // פתיחת גוף ה-enum LaurenState.
+    Patrol,
+    // Lauren הולכת בין נקודות המסלול.
+    Investigate,
+    // Lauren הולכת אל המקום שבו שמעה רעש או ראתה את השחקן לאחרונה.
+    Search,
+    // Lauren עומדת ומחפשת לזמן קצר לאחר שהגיעה למקום החשוד.
+    Chase,
+    // Lauren רודפת אחרי השחקן כל עוד היא באמת רואה אותו.
+    ReturnToPatrol,
+    // Lauren חוזרת למסלול לאחר שסיימה לחפש.
+    Caught
+    // Lauren עצרה את התנועה ומפעילה את אנימציית התפיסה.
+}
+// סיום גוף ה-enum LaurenState.
 
-    }
-    // מגדיר את כל המצבים האפשריים של Lauren כמילים ברורות במקום הרבה משתני bool סותרים.
-
-
+[DisallowMultipleComponent]
+// מונע שני מוחות שונים של Lauren על אותו אובייקט.
+[RequireComponent(typeof(NavMeshAgent), typeof(LaurenVision), typeof(RoomTracker))]
+// מבטיח שכל הרכיבים החיוניים לתנועה, לראייה ולחדרים קיימים.
+[RequireComponent(typeof(Animator))]
+// מבטיח שה-Animator נמצא על אותו GameObject כדי ש-Animation Event יוכל למצוא את LaurenAI.
+public sealed class LaurenAI : MonoBehaviour
+// משמש כמוח היחיד שמחליט מה Lauren עושה בכל רגע.
+{
     // פתיחת גוף המחלקה LaurenAI.
     [Header("Required References")]
     // יוצר כותרת ב-Inspector עבור החיבורים שחייבים להיות קיימים.
@@ -106,7 +114,6 @@ public class LaurenAI : MonoBehaviour
 
     public LaurenState CurrentState => currentState;
     // מאפשר למסך בדיקה לקרוא את מצב Lauren בלי לשנות אותו.
-
 
     private void Awake()
     // פועל פעם אחת כאשר Lauren נטענת ומשלים חיבורים מקומיים וחיבורי סצנה.
@@ -884,5 +891,5 @@ public class LaurenAI : MonoBehaviour
         // מעדכן את פרמטר הריצה.
     }
     // סיום המתודה UpdateAnimatorParameters.
-
 }
+// סיום גוף המחלקה LaurenAI.

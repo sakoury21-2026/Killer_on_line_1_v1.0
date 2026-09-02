@@ -1,8 +1,9 @@
-using System.Collections;
+
 using UnityEngine;
-using UnityEngine.AI;
- [RequireComponent(typeof(NavMeshAgent))]
-public class PatrolPoint : MonoBehaviour
+// נותן גישה ל-MonoBehaviour ול-Transform של נקודת המסלול.
+
+public sealed class PatrolPoint : MonoBehaviour
+// מייצג נקודה אחת בלבד במסלול הסיור של Lauren.
 {
     // פתיחת גוף המחלקה PatrolPoint.
     [SerializeField] private string pointName;
@@ -19,5 +20,5 @@ public class PatrolPoint : MonoBehaviour
         // נותן לנקודה שם התחלתי זהה לשם שלה בהיררכיה.
     }
     // סיום המתודה Reset.
-
 }
+// סיום גוף המחלקה PatrolPoint.

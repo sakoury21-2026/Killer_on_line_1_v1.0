@@ -1,8 +1,14 @@
 using System.Collections.Generic;
+// נותן גישה ל-List ששומר את החדרים החופפים כרגע.
 using UnityEngine;
+// נותן גישה ל-MonoBehaviour, ל-Collider ולכלים של Unity.
 
-public class RoomTracker : MonoBehaviour
+[DisallowMultipleComponent]
+// מונע שני זיכרונות חדר שונים על אותו אובייקט.
+public sealed class RoomTracker : MonoBehaviour
+// זוכר באיזה חדר נמצא האובייקט שעליו הוא מותקן.
 {
+    // פתיחת גוף המחלקה RoomTracker.
     private readonly List<RoomVolume> roomsInside = new List<RoomVolume>();
     // שומר את כל החדרים שהאובייקט נמצא בתוכם כדי לטפל נכון בחפיפה ליד דלת.
     [SerializeField] private RoomVolume currentRoom;
@@ -81,5 +87,5 @@ public class RoomTracker : MonoBehaviour
         // מסמן שאין חדר נוכחי בזמן שהרכיב כבוי.
     }
     // סיום המתודה OnDisable.
-
 }
+// סיום גוף המחלקה RoomTracker.

@@ -1,7 +1,13 @@
-using UnityEngine;
 
-public class LaurenVision : MonoBehaviour
+using UnityEngine;
+// נותן גישה ל-Transform, ל-LayerMask, ל-Ray ולשאר כלי הראייה של Unity.
+
+[DisallowMultipleComponent]
+// מונע התקנה כפולה של מערכת הראייה על Lauren.
+public sealed class LaurenVision : MonoBehaviour
+// אחראי רק לשאלה אם Lauren רואה את השחקן ברגע הנוכחי.
 {
+    // פתיחת גוף המחלקה LaurenVision.
     [Header("Player References")]
     // יוצר כותרת ב-Inspector עבור חיבורי השחקן.
     [SerializeField] private Transform player;
@@ -139,5 +145,5 @@ public class LaurenVision : MonoBehaviour
         // מצייר קו קדימה באורך טווח הראייה כדי להקל על הכיוון ב-Scene.
     }
     // סיום המתודה OnDrawGizmosSelected.
-
 }
+// סיום גוף המחלקה LaurenVision
