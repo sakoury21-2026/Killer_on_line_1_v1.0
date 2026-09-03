@@ -291,20 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cb2ad746e7b30439f49ed0bbb3e165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrolPoint
-  currentState: 0
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  isOpen: 0
-  player: {fileID: 0}
-  viewDistance: 15
-  viewAngle: 60
-  catchDistance: 1.2
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  patrolSpeed: 2
-  chaseSpeed: 5
+  pointName: 
 --- !u!114 &261333003359286792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,9 +301,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 8641770617292157339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f200b2ac7b4444583ff810dd4083fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c8cacf0e7d98614786fc34eb1f0fa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaurenAI
+  agent: {fileID: 0}
+  vision: {fileID: 0}
+  roomTracker: {fileID: 0}
+  player: {fileID: 0}
+  noiseSystem: {fileID: 0}
+  gameFlow: {fileID: 0}
+  animator: {fileID: 0}
+  patrolPoints: []
+  roomIdleDuration: 4.5
+  patrolSpeed: 2
+  chaseSpeed: 4.5
+  arrivalDistance: 0.45
+  navMeshSampleRadius: 2
+  searchDuration: 4
+  searchTurnSpeed: 70
+  chaseRefreshInterval: 0.2
+  catchDistance: 1.2
+  catchFallbackDuration: 2.5
+  movingParameter: IsMoving
+  runningParameter: IsRunning
+  killingTrigger: Killing
+  currentState: 0
 --- !u!114 &5903352214792195284
 MonoBehaviour:
   m_ObjectHideFlags: 0

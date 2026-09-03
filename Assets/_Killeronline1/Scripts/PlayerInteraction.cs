@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 // מאפשר להשתמש בפעולות ממערכת הקלט החדשה
 
-[DisallowMultipleComponent]
-// מונע שתי מערכות אינטראקציה ששולחות שתי קרניים מאותו שחקן
-public class PlayerInteraction : MonoBehaviour
-// מנהל את האינטראקציות שהשחקן מבצע
+[DisallowMultipleComponent] // מונע שתי מערכות אינטראקציה ששולחות שתי קרניים מאותו שחקן
+public class PlayerInteraction : MonoBehaviour // מנהל את האינטראקציות שהשחקן מבצע
 {
     [SerializeField] private Camera playerCamera;
     // המצלמה שממנה נשלחת הקרן לבדיקת חפצים
@@ -16,8 +14,20 @@ public class PlayerInteraction : MonoBehaviour
     private IHoldInteractable currentHoldInteractable;
     // שומר את החפץ שהשחקן מחזיק כרגע
 
-    private void Awake()
-    // מופעלת פעם אחת ומוודאת שקיימת מצלמה לשליחת הקרן
+    private void Awake() // מופעלת פעם אחת ומוודאת שקיימת מצלמה לשליחת הקרן
+    { // פתיחת פעולת ההכנה
+        if (playerCamera == null) // בודק אם המצלמה לא חוברה דרך ה-Inspector
+        { // פתיחת תנאי חיפוש המצלמה
+            playerCamera = GetComponentInChildren<Camera>(); // מחפש מצלמה בתוך ילדי השחקן
+        } // סיום תנאי חיפוש המצלמה
+
+        if (playerCamera == null) // בודק אם גם החיפוש האוטומטי נכשל
+        { // פתיחת תנאי השגיאה
+            Debug.LogError("PlayerInteraction לא מצא מצלמה של השחקן", this); // מציג הוראת חיבור ברורה ב-Console
+        } // סיום תנאי השגיאה
+    } // סיום פעולת ההכנה
+
+    public void OnInteract(InputAction.CallbackContext context) // מופעלת מאירוע האינטראקציה של הכפתור E
     {
         // פתיחת פעולת ההכנה
         if (playerCamera == null)
@@ -59,23 +69,15 @@ public class PlayerInteraction : MonoBehaviour
             // עוצר כי זו אינה הלחיצה הרצויה
         }
 
-        if (currentHoldInteractable != null)
-        // בודק אם השחקן כבר מחזיק חפץ אחר
+        if (currentHoldInteractable != null) // בודק אם השחקן כבר מחזיק חפץ אחר
         {
-            // פתיחת תנאי האחיזה הקיימת
-            return;
-            // מונע התחלה של שתי אחיזות באותה לחיצה
+            return; // מונע התחלה של שתי אחיזות באותה לחיצה
         }
-        // סיום תנאי האחיזה הקיימת
 
-        if (playerCamera == null)
-        // בודק אם אין מצלמה שממנה אפשר לשלוח קרן
+        if (playerCamera == null) // בודק אם אין מצלמה שממנה אפשר לשלוח קרן
         {
-            // פתיחת תנאי המצלמה החסרה
-            return;
-            // עוצר ומונע שגיאת NullReference
+            return; // עוצר ומונע שגיאת NullReference
         }
-        // סיום תנאי המצלמה החסרה
 
         if (Physics.Raycast(
             playerCamera.transform.position,
@@ -87,45 +89,53 @@ public class PlayerInteraction : MonoBehaviour
             interactionDistance))
         // מגביל את הקרן למרחק האינטראקציה
         {
-            IHoldInteractable holdInteractable = hit.collider.GetComponentInParent<IHoldInteractable>();
-            // מחפש אינטראקציית אחיזה גם על הקוליידר וגם על אובייקט אב שלו
+            IInteractable directInteractable =
+                hit.collider.GetComponent<IInteractable>(); // מחפש אינטראקציה קצרה על האובייקט המדויק שבו הקרן פגעה
 
-            if (holdInteractable != null)
-            // בודק אם נמצאה אינטראקציה באמצעות אחיזה
+            if (directInteractable != null) // בודק אם נפגענו ישירות בחפץ כמו המפתח
             {
-                if (holdInteractable is Behaviour holdBehaviour && !holdBehaviour.isActiveAndEnabled)
-                // בודק אם רכיב האחיזה קיים אבל כבוי
+                if (directInteractable is Behaviour directBehaviour &&
+                    !directBehaviour.isActiveAndEnabled) // בודק אם רכיב האינטראקציה קיים אבל כבוי
                 {
                     return;
                     // עוצר כדי שלא יהיה אפשר להשתמש ברכיב כבוי
                 }
 
-                currentHoldInteractable = holdInteractable;
-                // שומר את החפץ שהשחקן מתחיל להחזיק
-                currentHoldInteractable.BeginInteract();
-                // מתחיל את האחיזה בחפץ
-                return;
-                // עוצר כדי שלא להפעיל גם אינטראקציה קצרה
+                directInteractable.Interact(); // מפעיל את המפתח או את החפץ המדויק שבו הקרן פגעה
+                return; // מונע מהקוד להפעיל גם את המגירה שמעל המפתח בהיררכיה
             }
 
-            IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
-            // מחפש אינטראקציה קצרה גם על הקוליידר וגם על אובייקט אב שלו
+            IHoldInteractable holdInteractable =
+                hit.collider.GetComponentInParent<IHoldInteractable>(); // מחפש מגירה או דלת על האובייקט או על אחד ההורים שלו
 
-            if (interactable != null)
-            // בודק אם נמצאה אינטראקציה קצרה
+            if (holdInteractable != null) // בודק אם נמצאה אינטראקציה שדורשת החזקת E
             {
-                if (interactable is Behaviour interactableBehaviour && !interactableBehaviour.isActiveAndEnabled)
-                // בודק אם רכיב האינטראקציה קיים אבל כבוי
+                if (holdInteractable is Behaviour holdBehaviour &&
+                    !holdBehaviour.isActiveAndEnabled) // בודק אם רכיב האחיזה קיים אבל כבוי
+                {
+                    return; // עוצר כדי שלא יהיה אפשר להשתמש ברכיב כבוי
+                }
+
+                currentHoldInteractable = holdInteractable; // שומר את המגירה או הדלת שהשחקן התחיל להחזיק
+                currentHoldInteractable.BeginInteract(); // מתחיל את פעולת האחיזה
+                return; // עוצר כדי שלא תופעל גם אינטראקציה אחרת
+            }
+
+            IInteractable parentInteractable =
+                hit.collider.GetComponentInParent<IInteractable>(); // מחפש אינטראקציה קצרה על אובייקט הורה
+
+            if (parentInteractable != null) // בודק אם נמצאה אינטראקציה קצרה אצל אחד ההורים
+            {
+                if (parentInteractable is Behaviour parentBehaviour &&
+                    !parentBehaviour.isActiveAndEnabled) // בודק אם רכיב האינטראקציה של ההורה כבוי
                 {
                     return;
                     // עוצר כדי שלא יהיה אפשר להשתמש ברכיב כבוי
                 }
 
-                interactable.Interact();
-                // מפעיל את האינטראקציה כאשר הרכיב קיים ופעיל
+                parentInteractable.Interact(); // מפעיל את האינטראקציה שנמצאה אצל ההורה
             }
-            else
-            // מופעל אם הקרן פגעה בחפץ שאין עליו אינטראקציה
+            else // מופעל אם הקרן פגעה בחפץ שאין עליו מערכת אינטראקציה
             {
                 Debug.Log("Hit object is not interactable");
                 // מציג שהחפץ שנפגע אינו אינטראקטיבי
@@ -139,8 +149,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    // מופעלת אוטומטית כאשר רכיב האינטראקציה של השחקן נכבה
+    private void OnDisable() // מופעל אוטומטית כאשר רכיב האינטראקציה של השחקן נכבה
     {
         ReleaseCurrentHold();
         // משחרר חפץ מוחזק כדי שהשחקן לא יישאר נעול
