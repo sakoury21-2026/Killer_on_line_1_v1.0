@@ -33,7 +33,7 @@ public sealed class GameFlow : MonoBehaviour
         IsFinished = false;
         // מסמן שהמשחק עדיין פעיל.
 
-        if (playerInput == null)
+       // if (playerInput == null)
         // בודק אם קלט השחקן לא חובר דרך ה-Inspector.
         {
             // פתיחת תנאי השלמת קלט השחקן.
@@ -42,7 +42,7 @@ public sealed class GameFlow : MonoBehaviour
         }
         // סיום תנאי השלמת קלט השחקן.
 
-        if (winPanel != null)
+       // if (winPanel != null)
         // בודק אם חלונית הניצחון חוברה.
         {
             // פתיחת תנאי חלונית הניצחון.
@@ -51,7 +51,7 @@ public sealed class GameFlow : MonoBehaviour
         }
         // סיום תנאי חלונית הניצחון.
 
-        if (losePanel != null)
+       // if (losePanel != null)
         // בודק אם חלונית ההפסד חוברה.
         {
             // פתיחת תנאי חלונית ההפסד.
@@ -60,7 +60,7 @@ public sealed class GameFlow : MonoBehaviour
         }
         // סיום תנאי חלונית ההפסד.
 
-        if (playerInput == null || winPanel == null || losePanel == null)
+        //if (playerInput == null || winPanel == null || losePanel == null)
         // בודק אם אחד מחיבורי החובה עדיין חסר.
         {
             // פתיחת תנאי החיבור החסר.

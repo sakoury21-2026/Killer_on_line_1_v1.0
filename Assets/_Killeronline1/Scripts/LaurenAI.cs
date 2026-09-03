@@ -181,6 +181,23 @@ public sealed class LaurenAI : MonoBehaviour
             // מאפשר ל-Lauren להאט כשהיא מתקרבת ליעד במקום לעבור אותו.
         }
         // סיום תנאי הגדרת ה-Agent.
+
+        if (player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogError(
+                    "LaurenAI לא מצא Player. ודא של-Player יש Tag בשם 'Player'.",
+                    this
+                );
+            }
+        }
     }
     // סיום המתודה Awake.
 

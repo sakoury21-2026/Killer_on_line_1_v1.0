@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Door
+  - Lauren
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - WP1
+  - WP2
   - 
   - 
   - 

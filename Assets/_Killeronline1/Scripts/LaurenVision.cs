@@ -7,143 +7,213 @@ using UnityEngine;
 public sealed class LaurenVision : MonoBehaviour
 // אחראי רק לשאלה אם Lauren רואה את השחקן ברגע הנוכחי.
 {
-    // פתיחת גוף המחלקה LaurenVision.
+
     [Header("Player References")]
-    // יוצר כותרת ב-Inspector עבור חיבורי השחקן.
     [SerializeField] private Transform player;
-    // שומר את ה-Transform הראשי של השחקן כדי לחשב כיוון ומרחק.
+    // שומר את ה-Transform של השחקן.
+
     [SerializeField] private PlayerStealthState playerStealthState;
-    // שומר את מצב ההתגנבות כדי לא לראות שחקן שמוסתר כחוק.
+    // שומר את מצב ההתגנבות של השחקן.
+
     [SerializeField] private RoomTracker playerRoomTracker;
-    // שומר את החדר הנוכחי של השחקן.
+    // שומר את RoomTracker של השחקן.
 
     [Header("Lauren References")]
-    // יוצר כותרת ב-Inspector עבור חיבורי Lauren.
     [SerializeField] private Transform eyePoint;
-    // קובע את הנקודה שממנה יוצאת קרן הראייה בגובה העיניים.
+    // נקודת העיניים שממנה יוצאת קרן הראייה.
+
     [SerializeField] private RoomTracker laurenRoomTracker;
-    // שומר את החדר הנוכחי של Lauren.
+    // RoomTracker של Lauren.
 
     [Header("Vision Settings")]
-    // יוצר כותרת ב-Inspector עבור חוקי הראייה.
     [SerializeField] private float visionRange = 12f;
-    // קובע את המרחק המרבי שבו Lauren יכולה לראות את השחקן.
+    // טווח הראייה המקסימלי.
+
     [SerializeField, Range(1f, 180f)] private float visionAngle = 80f;
-    // קובע את רוחב חרוט הראייה במעלות כדי למנוע ראייה מאחור.
+    // רוחב חרוט הראייה.
+
     [SerializeField] private LayerMask visionMask = ~0;
-    // קובע אילו שכבות יכולות להיפגע מהקרן וצריך לכלול את השחקן ואת קירות הסביבה.
+    // השכבות שה-Ray יכול לפגוע בהן.
+
+    private void Awake()
+    // מחבר אוטומטית את כל ה-References בתחילת המשחק.
+    {
+        FindPlayerReferences();
+
+        if (laurenRoomTracker == null)
+        {
+            laurenRoomTracker = GetComponent<RoomTracker>();
+        }
+
+        if (eyePoint == null)
+        {
+            Transform foundEyePoint = transform.Find("EyePoint");
+
+            if (foundEyePoint != null)
+            {
+                eyePoint = foundEyePoint;
+            }
+        }
+
+        DebugPlayerSetup();
+    }
+
+    private void FindPlayerReferences()
+    // מוצא את ה-Player ואת הרכיבים הדרושים לו.
+    {
+        if (player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+            if (playerObject == null)
+            {
+                Debug.LogError(
+                    "LaurenVision לא מצא Player. ודא של-Player יש Tag בשם 'Player'.",
+                    this
+                );
+
+                return;
+            }
+
+            player = playerObject.transform;
+        }
+
+        if (playerStealthState == null)
+        {
+            playerStealthState =
+                player.GetComponentInParent<PlayerStealthState>();
+        }
+
+        if (playerRoomTracker == null)
+        {
+            playerRoomTracker =
+                player.GetComponentInParent<RoomTracker>();
+        }
+    }
+
+    private void DebugPlayerSetup()
+    // מציג ב-Console בדיוק מה LaurenVision הצליח למצוא.
+    {
+        if (player == null)
+        {
+            Debug.LogError("LaurenVision: Player חסר.", this);
+        }
+        else
+        {
+            Debug.Log("LaurenVision: Player נמצא -> " + player.name, this);
+        }
+
+        if (playerStealthState == null)
+        {
+            Debug.LogError(
+                "LaurenVision: PlayerStealthState חסר על ה-Player או על אחד ההורים שלו.",
+                this
+            );
+        }
+
+        if (playerRoomTracker == null)
+        {
+            Debug.LogError(
+                "LaurenVision: RoomTracker חסר על ה-Player או על אחד ההורים שלו.",
+                this
+            );
+        }
+
+        if (laurenRoomTracker == null)
+        {
+            Debug.LogError(
+                "LaurenVision: RoomTracker של Lauren חסר.",
+                this
+            );
+        }
+    }
 
     public bool CanSeePlayer()
-    // מחזיר true רק אם כל חוקי הראייה עברו בהצלחה.
+    // מחזיר true רק כאשר כל חוקי הראייה מתקיימים.
     {
-        // פתיחת המתודה CanSeePlayer.
-        if (player == null || playerStealthState == null)
-        // בודק שקיימים גם השחקן וגם מקור האמת של ההתגנבות.
+        if (player == null ||
+            playerStealthState == null ||
+            laurenRoomTracker == null ||
+            playerRoomTracker == null)
         {
-            // פתיחת תנאי חיבורי השחקן החסרים.
             return false;
-            // מחזיר false כי אסור לנחש כאשר חסר חיבור חשוב.
         }
-        // סיום תנאי חיבורי השחקן החסרים.
-
-        if (laurenRoomTracker == null || playerRoomTracker == null)
-        // בודק ששני האובייקטים מחוברים למערכת החדרים.
-        {
-            // פתיחת תנאי חיבורי החדר החסרים.
-            return false;
-            // מחזיר false כי אין דרך בטוחה לבדוק אם הם באותו חדר.
-        }
-        // סיום תנאי חיבורי החדר החסרים.
 
         RoomVolume laurenRoom = laurenRoomTracker.CurrentRoom;
-        // קורא פעם אחת את החדר הנוכחי של Lauren.
         RoomVolume playerRoom = playerRoomTracker.CurrentRoom;
-        // קורא פעם אחת את החדר הנוכחי של השחקן.
 
         if (laurenRoom == null || playerRoom == null)
-        // בודק שאף אחד מהם אינו נמצא בשטח שלא כוסה על ידי RoomVolume.
         {
-            // פתיחת תנאי החדר הלא ידוע.
             return false;
-            // מחזיר false כדי ש-null מול null לא ייחשב בטעות לאותו חדר.
         }
-        // סיום תנאי החדר הלא ידוע.
 
         if (laurenRoom != playerRoom)
-        // בודק אם Lauren והשחקן נמצאים בחדרים שונים.
         {
-            // פתיחת תנאי החדרים השונים.
             return false;
-            // מחזיר false כי לפי חוק המשחק Lauren רואה רק בתוך אותו חדר.
         }
-        // סיום תנאי החדרים השונים.
 
         if (playerStealthState.IsHidden)
-        // בודק אם השחקן נמצא במחבוא וגם כורע.
         {
-            // פתיחת תנאי ההסתרה.
             return false;
-            // מחזיר false כי המחבוא מסתיר את השחקן מ-Lauren.
         }
-        // סיום תנאי ההסתרה.
 
-        Vector3 eyePosition = eyePoint != null ? eyePoint.position : transform.position + Vector3.up * 1.6f;
-        // בוחר נקודת עיניים מחוברת או גובה גיבוי מעל Lauren.
+        Vector3 eyePosition =
+            eyePoint != null
+                ? eyePoint.position
+                : transform.position + Vector3.up * 1.6f;
+
         Vector3 targetPosition = player.position + Vector3.up;
-        // מכוון את הקרן בערך למרכז הגוף ולא לכפות הרגליים.
+
         Vector3 directionToPlayer = targetPosition - eyePosition;
-        // יוצר וקטור מנקודת העיניים אל השחקן.
+
         float distanceToPlayer = directionToPlayer.magnitude;
-        // מחשב את אורך הווקטור שהוא המרחק אל השחקן.
 
         if (distanceToPlayer > visionRange)
-        // בודק אם השחקן רחוק יותר מטווח הראייה.
         {
-            // פתיחת תנאי המרחק.
             return false;
-            // מחזיר false כי Lauren אינה רואה למרחק בלתי מוגבל.
         }
-        // סיום תנאי המרחק.
 
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-        // מחשב את הזווית בין הפנים של Lauren לבין הכיוון לשחקן.
+        float angleToPlayer =
+            Vector3.Angle(transform.forward, directionToPlayer);
 
         if (angleToPlayer > visionAngle * 0.5f)
-        // בודק אם השחקן נמצא מחוץ לחצי הזווית בכל צד של מרכז המבט.
         {
-            // פתיחת תנאי הזווית.
             return false;
-            // מחזיר false כדי ש-Lauren לא תראה מאחור או רחוק מדי לצדדים.
         }
-        // סיום תנאי הזווית.
 
-        if (!Physics.Raycast(eyePosition, directionToPlayer.normalized, out RaycastHit hit, distanceToPlayer, visionMask, QueryTriggerInteraction.Ignore))
-        // יורה קרן ומתעלם מ-Trigger כמו RoomVolume ו-HideZone.
+        if (!Physics.Raycast(
+                eyePosition,
+                directionToPlayer.normalized,
+                out RaycastHit hit,
+                distanceToPlayer,
+                visionMask,
+                QueryTriggerInteraction.Ignore))
         {
-            // פתיחת תנאי הקרן שלא פגעה.
             return false;
-            // מחזיר false כי הקרן חייבת לפגוע בשחקן עצמו כדי להוכיח קו ראייה.
         }
-        // סיום תנאי הקרן שלא פגעה.
 
-        PlayerStealthState hitPlayer = hit.collider.GetComponentInParent<PlayerStealthState>();
-        // בודק אם הדבר הראשון שהקרן פגעה בו שייך לשחקן.
+        PlayerStealthState hitPlayer =
+            hit.collider.GetComponentInParent<PlayerStealthState>();
+
         return hitPlayer == playerStealthState;
-        // מחזיר true רק אם הפגיעה הראשונה היא בשחקן ולא בקיר או ברהיט.
     }
-    // סיום המתודה CanSeePlayer.
 
     private void OnDrawGizmosSelected()
-    // מצייר עזר בסצנה רק כאשר Lauren מסומנת ב-Editor.
+    // מציג את כיוון וטווח הראייה ב-Scene.
     {
-        // פתיחת המתודה OnDrawGizmosSelected.
-        Vector3 eyePosition = eyePoint != null ? eyePoint.position : transform.position + Vector3.up * 1.6f;
-        // מחשב את אותה נקודת עיניים שמשמשת בזמן המשחק.
+        Vector3 eyePosition =
+            eyePoint != null
+                ? eyePoint.position
+                : transform.position + Vector3.up * 1.6f;
+
         Gizmos.color = Color.yellow;
-        // בוחר צבע צהוב לקו שמציג את טווח הראייה.
+
         Gizmos.DrawRay(eyePosition, transform.forward * visionRange);
-        // מצייר קו קדימה באורך טווח הראייה כדי להקל על הכיוון ב-Scene.
+
+
+        
     }
-    // סיום המתודה OnDrawGizmosSelected.
 }
+
+
 // סיום גוף המחלקה LaurenVision
