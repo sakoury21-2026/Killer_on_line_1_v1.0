@@ -46603,6 +46603,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8827833067749524585, guid: 86fb7abc494e6db46897e15add428e62, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 454283530}
+    - target: {fileID: 8827833067749524585, guid: 86fb7abc494e6db46897e15add428e62, type: 3}
+      propertyPath: obstructionMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
