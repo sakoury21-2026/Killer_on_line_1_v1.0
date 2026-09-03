@@ -1,5 +1,9 @@
-public interface IHoldInteractable // חוזה לחפץ שמגיב ללחיצה ולשחרור
+
+public interface IHoldInteractable
+// חוזה לחפץ שמגיב ללחיצה ולשחרור
 {
-    void BeginInteract(); // מתחיל את האחיזה כשהכפתור נלחץ
-    void EndInteract(); // מסיים את האחיזה כשהכפתור משתחרר
+    void BeginInteract();
+    // מתחיל את האחיזה כשהכפתור נלחץ
+    void EndInteract();
+    // מסיים את האחיזה כשהכפתור משתחרר
 }
