@@ -8547,7 +8547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaurenVision
   player: {fileID: 1851014034}
   playerStealthState: {fileID: 1851014037}
-  playerRoomTracker: {fileID: 0}
+  playerRoomTracker: {fileID: 1851014038}
   eyePoint: {fileID: 718195218}
   laurenRoomTracker: {fileID: 351912552}
   visionRange: 12
@@ -8571,8 +8571,8 @@ MonoBehaviour:
   vision: {fileID: 351912553}
   roomTracker: {fileID: 351912552}
   player: {fileID: 1851014034}
-  noiseSystem: {fileID: 0}
-  gameFlow: {fileID: 0}
+  noiseSystem: {fileID: 1873776845}
+  gameFlow: {fileID: 166775904}
   animator: {fileID: 155938522}
   patrolPoints:
   - {fileID: 0}
