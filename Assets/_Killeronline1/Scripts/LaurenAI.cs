@@ -1,3 +1,4 @@
+
 using UnityEngine;
 // נותן גישה ל-MonoBehaviour, ל-Transform, ל-Animator, ל-Vector3 ול-Time של Unity.
 using UnityEngine.AI;
