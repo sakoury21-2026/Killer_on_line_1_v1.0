@@ -1319,13 +1319,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &58506775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58506756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &64908387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8352774829690387895, guid: f8abafb4127b4fa41abe0f1030d44b82, type: 3}
@@ -2895,11 +2916,12 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
 --- !u!1 &108884287 stripped
@@ -2968,13 +2990,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &108884306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108884287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &109698900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3846,11 +3889,12 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
 --- !u!1 &133656087
@@ -5764,13 +5808,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &200068959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200068940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &204701840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6535,18 +6600,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
   m_PrefabInstance: {fileID: 1562015400}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &232081052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232081046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6c2d3edf6a12b469998a5b416d7ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MySmartDoor
 --- !u!114 &232081058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,13 +6616,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &232081064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232081046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &240132894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8588,6 +8662,9 @@ MonoBehaviour:
   chaseSpeed: 4.5
   arrivalDistance: 0.45
   navMeshSampleRadius: 2
+  roomDoors: []
+  doorDetectionDistance: 2
+  doorCheckInterval: 0.15
   searchDuration: 4
   searchTurnSpeed: 70
   chaseRefreshInterval: 0.2
@@ -8684,7 +8761,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &351912559
@@ -8776,8 +8853,8 @@ Transform:
   m_GameObject: {fileID: 351912551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7164729, z: -0, w: 0.69761497}
-  m_LocalPosition: {x: -4.745, y: -0.068, z: 0.459}
-  m_LocalScale: {x: 0.34, y: 0.34, z: 0.3}
+  m_LocalPosition: {x: -6.64, y: -0.14, z: -0.78}
+  m_LocalScale: {x: 0.9998055, y: 0.9998055, z: 0.88218147}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 834294171}
@@ -11025,6 +11102,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 1851014035}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 1873776845}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1851014036}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11123,7 +11212,7 @@ Transform:
   m_GameObject: {fileID: 443283826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.81299, y: 0.32999998, z: -38.256706}
+  m_LocalPosition: {x: 2.8129883, y: 0.12999998, z: -88.25671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11151,7 +11240,7 @@ Transform:
   - {fileID: 1934896720}
   - {fileID: 676187372}
   - {fileID: 266039002}
-  m_Father: {fileID: 2075116922}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &445016957 stripped
 Transform:
@@ -11800,6 +11889,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 722615427}
+    - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 722615433}
   m_SourcePrefab: {fileID: 100100000, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
 --- !u!4 &462686160 stripped
 Transform:
@@ -15657,6 +15749,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 1851014035}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 1873776845}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1851014036}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17668,8 +17772,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718195217}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7164729, z: 0, w: 0.69761497}
-  m_LocalPosition: {x: 0.023, y: 1.766, z: 0.139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 3.3330164, y: 2.9411764, z: 2.941422}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17708,13 +17812,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &722615433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722615414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &724136405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21739,13 +21864,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &884517830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884517811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &885184443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22499,13 +22645,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &920505397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920505383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &921895153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27951,6 +28118,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 58506770}
+    - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 58506775}
   m_SourcePrefab: {fileID: 100100000, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
 --- !u!1 &1141525427 stripped
 GameObject:
@@ -28753,6 +28923,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884517824}
+    - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884517830}
   m_SourcePrefab: {fileID: 100100000, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
 --- !u!4 &1191964268 stripped
 Transform:
@@ -30384,6 +30557,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 1851014035}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 1873776845}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1851014036}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30992,6 +31177,10 @@ PrefabInstance:
       propertyPath: playerLook
       value: 
       objectReference: {fileID: 1851014035}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 1873776845}
     - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
       propertyPath: playerMovement
       value: 
@@ -34485,6 +34674,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 200068953}
+    - targetCorrespondingSourceObject: {fileID: 1889589370831100, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200068959}
   m_SourcePrefab: {fileID: 100100000, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
 --- !u!4 &1433101868 stripped
 Transform:
@@ -37363,6 +37555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1783271946408016, guid: 145951c76cacc4f4393085a293255411, type: 3}
       insertIndex: -1
       addedObject: {fileID: 108884301}
+    - targetCorrespondingSourceObject: {fileID: 1783271946408016, guid: 145951c76cacc4f4393085a293255411, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 108884306}
   m_SourcePrefab: {fileID: 100100000, guid: 145951c76cacc4f4393085a293255411, type: 3}
 --- !u!1001 &1542666772
 PrefabInstance:
@@ -38049,6 +38244,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 65680862327526002, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0029197
+      objectReference: {fileID: 0}
+    - target: {fileID: 65680862327526002, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
+      propertyPath: m_Center.x
+      value: -0.5005648
+      objectReference: {fileID: 0}
+    - target: {fileID: 65680862327526002, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0074923523
+      objectReference: {fileID: 0}
     - target: {fileID: 114410976665799846, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
       propertyPath: open
       value: 0
@@ -38063,10 +38270,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 232081052}
+      addedObject: {fileID: 232081058}
     - targetCorrespondingSourceObject: {fileID: 1975789379832626, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 232081058}
+      addedObject: {fileID: 232081064}
   m_SourcePrefab: {fileID: 100100000, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
 --- !u!1001 &1562060416
 PrefabInstance:
@@ -38173,6 +38380,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 920505390}
+    - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920505397}
   m_SourcePrefab: {fileID: 100100000, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
 --- !u!1001 &1562498385
 PrefabInstance:
@@ -40736,13 +40946,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &1683739826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683739805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!114 &1694132116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42110,6 +42341,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 1851014035}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: noiseSystem
+      value: 
+      objectReference: {fileID: 1873776845}
+    - target: {fileID: 6803879628354796712, guid: e5f611970ce405a499685c9d4d3d418a, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1851014036}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43827,6 +44070,14 @@ PrefabInstance:
       propertyPath: noiseSystem
       value: 
       objectReference: {fileID: 1873776845}
+    - target: {fileID: 8827833067749524585, guid: 86fb7abc494e6db46897e15add428e62, type: 3}
+      propertyPath: sprintNoiseRadius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827833067749524585, guid: 86fb7abc494e6db46897e15add428e62, type: 3}
+      propertyPath: sprintNoiseInterval
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44933,11 +45184,11 @@ Transform:
   m_GameObject: {fileID: 1870197283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.5436, y: 0.32999998, z: -35.002098}
+  m_LocalPosition: {x: -0.45640182, y: 0.12999998, z: -85.0021}
   m_LocalScale: {x: 8.570049, y: 1, z: 3.3622222}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2075116922}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1870254018
 PrefabInstance:
@@ -47439,6 +47690,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1683739819}
+    - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1683739826}
   m_SourcePrefab: {fileID: 100100000, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
 --- !u!4 &1961411626 stripped
 Transform:
@@ -49352,7 +49606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &2041295791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49641,6 +49895,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2092199722}
+    - targetCorrespondingSourceObject: {fileID: 1358950855282810, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2092199729}
   m_SourcePrefab: {fileID: 100100000, guid: 07a82e97a5029824f80d55c3952e43e1, type: 3}
 --- !u!4 &2057148792 stripped
 Transform:
@@ -49887,12 +50144,10 @@ Transform:
   m_GameObject: {fileID: 2075116919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: -0.2, z: -50}
+  m_LocalPosition: {x: -50, y: -0.33, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 1870197287}
-  - {fileID: 443283827}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2075116923
@@ -50224,13 +50479,34 @@ MonoBehaviour:
   doorSideReference: {fileID: 0}
   openAngle: 90
   dragSensitivity: 0.0025
-  playerLook: {fileID: 0}
-  playerMovement: {fileID: 0}
-  noiseSystem: {fileID: 0}
-  doorNoiseRadius: 5
-  sidewaysNoiseThreshold: 4
+  aiOpeningSpeed: 1.5
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  doorNoiseRadius: 50
+  sidewaysNoiseThreshold: 10
   fastPullThreshold: 900
   noiseCooldown: 0.35
+--- !u!114 &2092199729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092199708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!4 &2096392672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4227889827151656, guid: 35ca5007b9b280f4f93ae97058146c54, type: 3}
@@ -51400,9 +51676,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6987270208088957456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ed0fba2d76cd447b2e7cc5613c411f, type: 3}
+  m_Script: {fileID: 11500000, guid: 71bd336b57ef4694bafc5fd50b60c91f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestInteractable
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerInteractable
+  openDistance: 0.35
+  opensInPositiveZ: 1
+  dragSensitivity: 0.001
+  playerLook: {fileID: 1851014035}
+  playerMovement: {fileID: 1851014036}
+  noiseSystem: {fileID: 1873776845}
+  drawerNoiseRadius: 5
+  sidewaysNoiseThreshold: 4
+  fastPullThreshold: 900
+  noiseCooldown: 0.35
 --- !u!23 &9173314887082269514
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51460,6 +51746,8 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1138962085}
   - {fileID: 2075116922}
+  - {fileID: 1870197287}
+  - {fileID: 443283827}
   - {fileID: 763264528}
   - {fileID: 870781651}
   - {fileID: 149456512}

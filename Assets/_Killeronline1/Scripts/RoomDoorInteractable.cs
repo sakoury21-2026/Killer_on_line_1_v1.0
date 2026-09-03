@@ -20,6 +20,11 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
     [SerializeField] private float dragSensitivity = 0.0025f;
     // ממיר את תנועת העכבר לכמות פתיחה בין אפס לאחד.
 
+    [Header("AI Opening")]
+    // יוצר כותרת ב-Inspector עבור פתיחה אוטומטית של הדלת על ידי Lauren.
+    [SerializeField, Min(0.1f)] private float aiOpeningSpeed = 1.5f;
+    // קובע כמה מהר Lauren פותחת את הדלת; ערך 1.5 פותח אותה בערך בשני שלישי שנייה.
+
     [Header("Player References")]
     // יוצר כותרת ב-Inspector עבור החיבורים לרכיבי השחקן.
     [SerializeField] private PlayerLook playerLook;
@@ -54,6 +59,11 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
     // שומר את הזמן המוקדם הבא שבו מותר לדלת לדווח רעש.
     private bool isHeld;
     // שומר האם השחקן מחזיק כרגע את הדלת באמצעות E.
+    private bool isOpeningForAI;
+    // שומר האם Lauren ביקשה מהדלת להיפתח באופן אוטומטי.
+
+    public Vector3 DoorPosition => doorPivot != null ? doorPivot.position : transform.position;
+    // מאפשר ל-Lauren למדוד מרחק אל ציר הדלת בלי לקבל גישה לשינוי ה-Transform.
 
     private void Awake()
     // פועל פעם אחת כאשר ה-GameObject נטען ומכין את חיבורי הדלת ואת זוויותיה.
@@ -155,18 +165,49 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
     // סיום המתודה Awake.
 
     private void Update()
-    // פועל בכל פריים ומסובב את הדלת רק בזמן שהשחקן מחזיק אותה.
+    // פועל בכל פריים ומסובב את הדלת בזמן אחיזת השחקן או בזמן בקשת פתיחה של Lauren.
     {
         // פתיחת המתודה Update.
-        if (!isHeld)
-        // בודק אם אין כרגע אחיזה פעילה בדלת.
+        if (isHeld)
+        // בודק אם השחקן מחזיק כרגע את הדלת וצריך לקבל עדיפות על ה-AI.
         {
-            // פתיחת תנאי האחיזה.
+            // פתיחת תנאי שליטת השחקן.
+            UpdatePlayerOpening();
+            // קורא את העכבר ומעדכן את הפתיחה הידנית בדיוק כמו לפני הוספת ה-AI.
             return;
-            // עוצר כי אסור להזיז את הדלת ללא החזקת E.
+            // מונע מהפתיחה האוטומטית להתחרות בשחקן באותו פריים.
         }
-        // סיום תנאי האחיזה.
+        // סיום תנאי שליטת השחקן.
 
+        if (!isOpeningForAI)
+        // בודק אם Lauren לא ביקשה לפתוח את הדלת.
+        {
+            // פתיחת תנאי אין בקשת AI.
+            return;
+            // עוצר כי אין גורם שמנסה להזיז את הדלת.
+        }
+        // סיום תנאי אין בקשת AI.
+
+        openAmount = Mathf.MoveTowards(openAmount, 1f, aiOpeningSpeed * Time.deltaTime);
+        // מתקדם בצורה חלקה מהמצב הנוכחי אל פתיחה מלאה בקצב שאינו תלוי במספר הפריימים.
+        ApplyDoorRotation();
+        // מחיל על ציר הדלת את הסיבוב שמתאים לכמות הפתיחה החדשה.
+
+        if (openAmount >= 1f)
+        // בודק אם הדלת כבר פתוחה לחלוטין.
+        {
+            // פתיחת תנאי סיום פתיחת ה-AI.
+            isOpeningForAI = false;
+            // מפסיק לעדכן את הדלת עד שתתקבל בקשה חדשה.
+        }
+        // סיום תנאי סיום פתיחת ה-AI.
+    }
+    // סיום המתודה Update.
+
+    private void UpdatePlayerOpening()
+    // מטפלת רק בפתיחה ובסגירה הידנית באמצעות גרירת העכבר.
+    {
+        // פתיחת המתודה UpdatePlayerOpening.
         if (Mouse.current == null)
         // בודק אם קיים עכבר פעיל במערכת הקלט.
         {
@@ -185,10 +226,37 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
         // פותח למעלה מצד הלובי ולמטה מצד החדר לפי הכיוון שנשמר בתחילת האחיזה.
         openAmount = Mathf.Clamp01(openAmount + openAmountChange);
         // מוסיף את השינוי ומגביל את מצב הדלת לטווח שבין סגור לפתוח.
-        doorPivot.localRotation = Quaternion.Slerp(closedRotation, openRotation, openAmount);
-        // מחשב ומחיל את הסיבוב המתאים לכמות הפתיחה הנוכחית.
+        ApplyDoorRotation();
+        // מחיל על ציר הדלת את הסיבוב שמתאים לכמות הפתיחה החדשה.
     }
-    // סיום המתודה Update.
+    // סיום המתודה UpdatePlayerOpening.
+
+    private void ApplyDoorRotation()
+    // מרכזת את החלת הסיבוב כדי שהשחקן ו-Lauren ישתמשו באותו חישוב בדיוק.
+    {
+        // פתיחת המתודה ApplyDoorRotation.
+        doorPivot.localRotation = Quaternion.Slerp(closedRotation, openRotation, openAmount);
+        // מחשב ומחיל את הסיבוב שבין מצב סגור למצב פתוח.
+    }
+    // סיום המתודה ApplyDoorRotation.
+
+    public void OpenForAI()
+    // נקראת על ידי LaurenAI כאשר Lauren מתקרבת לדלת בזמן תנועה במסלול.
+    {
+        // פתיחת המתודה OpenForAI.
+        if (isHeld || openAmount >= 1f)
+        // בודק אם השחקן שולט בדלת כרגע או שהדלת כבר פתוחה לחלוטין.
+        {
+            // פתיחת תנאי מניעת בקשה מיותרת.
+            return;
+            // משאיר את השליטה לשחקן או נמנע מעדכון נוסף של דלת פתוחה.
+        }
+        // סיום תנאי מניעת בקשה מיותרת.
+
+        isOpeningForAI = true;
+        // מסמן ל-Update להתחיל לפתוח את הדלת בצורה חלקה.
+    }
+    // סיום המתודה OpenForAI.
 
     private void TryReportRoughMovement(Vector2 mouseDelta)
     // מקבלת את תנועת העכבר ובודקת אם היא מהירה מדי או נוטה הצידה.
@@ -252,6 +320,8 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
 
         DetermineMouseOpeningDirection();
         // בודק פעם אחת באיזה צד השחקן עומד וקובע איזו תנועת עכבר תפתח את הדלת.
+        isOpeningForAI = false;
+        // עוצר בקשת פתיחה אוטומטית קיימת כדי לתת לשחקן שליטה מלאה בדלת.
         isHeld = true;
         // מסמן שהדלת מוחזקת ולכן Update רשאי לקרוא את תנועת העכבר.
         playerLook.SetLookEnabled(false);
@@ -318,6 +388,8 @@ public class RoomDoorInteractable : MonoBehaviour, IHoldInteractable
         // פתיחת המתודה OnDisable.
         EndInteract();
         // מסיימת את האחיזה ומבטיחה שהשליטה בשחקן לא תישאר נעולה.
+        isOpeningForAI = false;
+        // מנקה בקשת AI ישנה כדי שהדלת לא תמשיך להיפתח לאחר הפעלה מחדש.
     }
     // סיום המתודה OnDisable.
 }

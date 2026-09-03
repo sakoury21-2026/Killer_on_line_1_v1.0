@@ -68,6 +68,15 @@ public sealed class LaurenAI : MonoBehaviour
     [SerializeField] private float navMeshSampleRadius = 2f;
     // קובע כמה רחוק מותר לחפש נקודת NavMesh תקינה סביב רעש או שחקן.
 
+    [Header("Door Navigation")]
+    // יוצר כותרת ב-Inspector עבור פתיחת דלתות חדרים בזמן ניווט.
+    [SerializeField] private RoomDoorInteractable[] roomDoors;
+    // שומר את דלתות החדרים; אם המערך ריק הן נמצאות אוטומטית בתחילת הסצנה.
+    [SerializeField, Min(0.1f)] private float doorDetectionDistance = 2f;
+    // קובע מאיזה מרחק Lauren מבקשת מהדלת הקרובה להיפתח.
+    [SerializeField, Min(0.02f)] private float doorCheckInterval = 0.15f;
+    // קובע באיזו תדירות נבדקות דלתות כדי לא לבצע את הבדיקה בכל פריים.
+
     [Header("Search And Chase")]
     // יוצר כותרת ב-Inspector עבור זמני חיפוש ותפיסה.
     [SerializeField] private float searchDuration = 4f;
@@ -102,6 +111,8 @@ public sealed class LaurenAI : MonoBehaviour
     // סופר לאחור את זמן החיפוש במקום החשוד.
     private float chaseRefreshTimer;
     // סופר לאחור עד עדכון יעד המרדף הבא.
+    private float doorCheckTimer;
+    // סופר לאחור עד בדיקת הדלת הקרובה הבאה.
     private float catchTimer;
     // סופר לאחור עד הצגת הפסד במקרה שאירוע האנימציה לא הופעל.
     private Vector3 investigationPosition;
@@ -173,6 +184,15 @@ public sealed class LaurenAI : MonoBehaviour
             // מחפש את מנהל הניצחון וההפסד היחיד בסצנה.
         }
         // סיום תנאי השלמת זרימת המשחק.
+
+        if (roomDoors == null || roomDoors.Length == 0)
+        // בודק אם דלתות החדרים לא חוברו ידנית דרך ה-Inspector.
+        {
+            // פתיחת תנאי חיפוש הדלתות.
+            roomDoors = FindObjectsByType<RoomDoorInteractable>(FindObjectsSortMode.None);
+            // מוצא פעם אחת את כל דלתות החדרים הפעילות בסצנה ושומר אותן לשימוש חוזר.
+        }
+        // סיום תנאי חיפוש הדלתות.
 
         if (agent != null)
         // בודק שה-Agent קיים לפני שמשנים הגדרה שלו.
@@ -348,6 +368,9 @@ public sealed class LaurenAI : MonoBehaviour
                 // מסיים את המקרה ReturnToPatrol.
         }
         // סיום גוף ה-switch.
+
+        TryOpenNearbyDoor();
+        // מבקש לפתוח דלת קרובה רק כאשר Lauren באמת נעה במסלול פעיל.
 
         UpdateAnimatorParameters();
         // מעדכן Idle, הליכה וריצה לפי המהירות והמצב הנוכחיים.
@@ -699,6 +722,85 @@ public sealed class LaurenAI : MonoBehaviour
         // סיום תנאי סיום החזרה.
     }
     // סיום המתודה UpdateReturnToPatrol.
+
+    private void TryOpenNearbyDoor()
+    // בודקת בקצב מוגבל אם קיימת דלת חדר קרובה בזמן ש-Lauren נעה במסלול.
+    {
+        // פתיחת המתודה TryOpenNearbyDoor.
+        if (agent == null || !agent.isOnNavMesh || agent.isStopped || !agent.hasPath)
+        // בודק שה-Agent פעיל ובאמת מתקדם אל יעד כלשהו.
+        {
+            // פתיחת תנאי Agent שאינו נע.
+            return;
+            // מונע פתיחת דלתות כאשר Lauren עומדת, מחפשת או נמצאת ב-Idle.
+        }
+        // סיום תנאי Agent שאינו נע.
+
+        doorCheckTimer -= Time.deltaTime;
+        // מפחית מהטיימר את הזמן שעבר מאז הפריים הקודם.
+
+        if (doorCheckTimer > 0f)
+        // בודק אם עדיין לא הגיע מועד בדיקת הדלתות הבאה.
+        {
+            // פתיחת תנאי ההמתנה.
+            return;
+            // משאיר את המצב הקיים וחוסך סריקה מיותרת של המערך.
+        }
+        // סיום תנאי ההמתנה.
+
+        doorCheckTimer = Mathf.Max(0.02f, doorCheckInterval);
+        // מתחיל את ההמתנה הבאה ושומר על ערך מינימלי בטוח גם אם הוזן אפס ב-Inspector.
+
+        if (roomDoors == null || roomDoors.Length == 0)
+        // בודק אם אין דלתות חדרים פעילות בסצנה.
+        {
+            // פתיחת תנאי אין דלתות.
+            return;
+            // יוצא בלי שגיאה כי ייתכנו סצנות בדיקה שאין בהן דלתות.
+        }
+        // סיום תנאי אין דלתות.
+
+        float closestAllowedSqrDistance = doorDetectionDistance * doorDetectionDistance;
+        // מחשב פעם אחת מרחק בריבוע כדי להימנע מחישובי שורש לכל דלת.
+        RoomDoorInteractable closestDoor = null;
+        // שומר את הדלת הקרובה ביותר שנמצאה בתוך הטווח.
+
+        foreach (RoomDoorInteractable door in roomDoors)
+        // עובר על מערך הדלתות שנשמר בתחילת הסצנה.
+        {
+            // פתיחת לולאת הדלתות.
+            if (door == null || !door.isActiveAndEnabled)
+            // בודק שהדלת עדיין קיימת ופעילה.
+            {
+                // פתיחת תנאי דלת לא תקינה.
+                continue;
+                // מדלג לדלת הבאה בלי לעצור את כל הבדיקה.
+            }
+            // סיום תנאי דלת לא תקינה.
+
+            float sqrDistance = (door.DoorPosition - transform.position).sqrMagnitude;
+            // מודד את המרחק בריבוע בין Lauren לבין ציר הדלת.
+
+            if (sqrDistance > closestAllowedSqrDistance)
+            // בודק אם הדלת רחוקה יותר מהטווח או מהדלת הקרובה שכבר נמצאה.
+            {
+                // פתיחת תנאי דלת רחוקה.
+                continue;
+                // מדלג לדלת הבאה.
+            }
+            // סיום תנאי דלת רחוקה.
+
+            closestAllowedSqrDistance = sqrDistance;
+            // מצמצם את הטווח למרחק של הדלת הקרובה החדשה.
+            closestDoor = door;
+            // שומר את הדלת כמועמדת הטובה ביותר לפתיחה.
+        }
+        // סיום לולאת הדלתות.
+
+        closestDoor?.OpenForAI();
+        // מבקש רק מהדלת הקרובה ביותר להיפתח ומשאיר לה לנהל את הסיבוב החלק.
+    }
+    // סיום המתודה TryOpenNearbyDoor.
 
     private void HandleNoiseReported(Vector3 position, float radius)
     // מקבלת מ-NoiseSystem את מיקום הרעש ואת הרדיוס שבו אפשר לשמוע אותו.
